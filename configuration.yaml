@@ -1,0 +1,70 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+google_assistant:
+  project_id: giacomo-hassio
+  service_account: !include giacomo_hassio.json
+  report_state: true
+  exposed_domains:
+    - light
+    - switch
+  expose_by_default : true
+
+switch:
+  - platform: mqtt
+    unique_id: bedroom_switch
+    name: "Studio"
+    state_topic: "stat/tasmota_F23E77/RESULT"
+    command_topic: "cmnd/tasmota_F23E77/POWER"
+    #availability_topic: "tele/tasmota_F23E77/STATE"
+    payload_on: "ON"
+    payload_off: "OFF"
+    state_on: '{"POWER":"ON"}'
+    state_off: '{"POWER":"OFF"}'
+    optimistic: false
+    qos: 0
+    retain: true
+
+# sensor:
+#   - platform: mqtt
+#     name: "myButton1"
+#     unique_id: myButton1
+#     icon: mdi:router-wireless
+#     state_topic: "tele/sonoff-z2t/SENSOR"
+#     unit_of_measurement: '°C'
+#     value_template: "Livello batteria : {{ value_json.batt }}"
+#   - platform: mqtt
+#     unique_id: myButton2
+#     name: "myButton2"
+#     icon: mdi:router-wireless
+#     state_topic: "tele/sonoff-z2t/SENSOR"
+#     unit_of_measurement: '%'
+#     value_template: "Livello batteria : {{ value_json.batt }}"
+#   - platform: mqtt
+#     unique_id: myButton3
+#     name: "myButton3"
+#     icon: mdi:router-wireless
+#     state_topic: "tele/sonoff-z2t/SENSOR"
+#     unit_of_measurement: '%'
+#     value_template: '{{ value_json.batt }}'
+#     availability_topic: "tele/sonoff-z2t/LWT"
+#     payload_available: "online"
+#     payload_not_available: "offline"
+#     qos: 0
+
+sensor scale : !include sensor_scale.yaml
+sensor tavolo : !include sensor_tavolo.yaml
+sensor terrazza : !include sensor_terrazza.yaml
+sensor thomas : !include sensor_thomas.yaml
+sensor thomas2 : !include sensor_thomas2.yaml
+sensor divano: !include sensor_divano.yaml
