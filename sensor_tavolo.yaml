@@ -1,0 +1,46 @@
+- platform: mqtt
+  name: "sensTavoloTemp"
+  unique_id: sensTavoloTemp
+  icon: mdi:temperature-celsius
+  state_topic: "tele/ea0aaa2fef86/SENSOR"
+  unit_of_measurement: °C
+  value_template: "{{ value_json.temp | float }}"
+  json_attributes_topic: "tele/ea0aaa2fef86/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensTavoloPresses"
+  unique_id: sensTavoloPresses
+  icon: mdi:counter
+  state_topic: "tele/ea0aaa2fef86/SENSOR"
+  unit_of_measurement: nr°
+  value_template: "{{ value_json.presses | float }}"
+  json_attributes_topic: "tele/ea0aaa2fef86/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensTavoloBatt"
+  unique_id: sensTavoloBatt
+  icon: mdi:battery
+  state_topic: "tele/ea0aaa2fef86/SENSOR"
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.batt | float }}"
+  json_attributes_topic: "tele/ea0aaa2fef86/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensTavoloPir"
+  unique_id: sensTavoloPir
+  icon: mdi:brightness-4
+  state_topic: "tele/ea0aaa2fef86/SENSOR"
+  unit_of_measurement: 'Pir'
+  value_template: "{{ value_json.pir | float }}"
+  json_attributes_topic: "tele/ea0aaa2fef86/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensTavoloMag"
+  unique_id: sensTavoloMag
+  icon: mdi:magnet
+  state_topic: "tele/ea0aaa2fef86/SENSOR"
+  unit_of_measurement: 'Mag'
+  value_template: "{{ value_json.mag | float }}"
+  json_attributes_topic: "tele/ea0aaa2fef86/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+  
