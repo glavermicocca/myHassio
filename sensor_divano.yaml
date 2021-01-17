@@ -1,0 +1,54 @@
+- platform: mqtt
+  name: "sensDivanoTemp"
+  unique_id: sensDivanoTemp
+  icon: mdi:temperature-celsius
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: °C
+  value_template: "{{ value_json.temp | float }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensDivanoPresses"
+  unique_id: sensDivanoPresses
+  icon: mdi:counter
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: nr°
+  value_template: "{{ value_json.presses | float }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensDivanoBatt"
+  unique_id: sensDivanoBatt
+  icon: mdi:battery
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.batt | float }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensDivanoPir"
+  unique_id: sensDivanoPir
+  icon: mdi:brightness-4
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: 'Pir'
+  value_template: "{{ value_json.pir | float }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensDivanoMag"
+  unique_id: sensDivanoMag
+  icon: mdi:magnet
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: 'Mag'
+  value_template: "{{ value_json.mag | float }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensDivanoToggle"
+  unique_id: sensDivanoToggle
+  icon: mdi:gesture-tap-hold
+  state_topic: "tele/f3e938efb722/SENSOR"
+  unit_of_measurement: 'On/Off'
+  value_template: "{{ value_json.toggle }}"
+  json_attributes_topic: "tele/f3e938efb722/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
