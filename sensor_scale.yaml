@@ -1,0 +1,46 @@
+- platform: mqtt
+  name: "sensScaleTemp"
+  unique_id: sensScaleTemp
+  icon: mdi:temperature-celsius
+  state_topic: "tele/e7f92accaf29/SENSOR"
+  unit_of_measurement: °C
+  value_template: "{{ value_json.temp | float }}"
+  json_attributes_topic: "tele/e7f92accaf29/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensScalePresses"
+  unique_id: sensScalePresses
+  icon: mdi:counter
+  state_topic: "tele/e7f92accaf29/SENSOR"
+  unit_of_measurement: nr°
+  value_template: "{{ value_json.presses | float }}"
+  json_attributes_topic: "tele/e7f92accaf29/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensScaleBatt"
+  unique_id: sensScaleBatt
+  icon: mdi:battery
+  state_topic: "tele/e7f92accaf29/SENSOR"
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.batt | float }}"
+  json_attributes_topic: "tele/e7f92accaf29/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensScalePir"
+  unique_id: sensScalePir
+  icon: mdi:brightness-4
+  state_topic: "tele/e7f92accaf29/SENSOR"
+  unit_of_measurement: 'Pir'
+  value_template: "{{ value_json.pir | float }}"
+  json_attributes_topic: "tele/e7f92accaf29/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensScaleMag"
+  unique_id: sensScaleMag
+  icon: mdi:magnet
+  state_topic: "tele/e7f92accaf29/SENSOR"
+  unit_of_measurement: 'Mag'
+  value_template: "{{ value_json.mag | float }}"
+  json_attributes_topic: "tele/e7f92accaf29/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+  
