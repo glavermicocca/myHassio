@@ -1,0 +1,155 @@
+- id: '1608236634951'
+  alias: Attivare caminetto
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 01:30:00
+  condition: []
+  action:
+  - type: turn_on
+    device_id: e02b67597a8f0a781e56810c274534a1
+    entity_id: switch.caminetto
+    domain: switch
+  mode: single
+- id: '1608237133392'
+  alias: Disattivare caminetto
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 08:00:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: e02b67597a8f0a781e56810c274534a1
+    entity_id: switch.caminetto
+    domain: switch
+  mode: single
+- id: '1608332956001'
+  alias: Attivare albero
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 01:30:00
+  condition: []
+  action:
+  - type: turn_on
+    device_id: 79fb1df27d4a579c85a23fb1e49f9ccb
+    entity_id: switch.albero
+    domain: switch
+  mode: single
+- id: '1608332985645'
+  alias: Disattivare albero
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 08:00:00
+  condition: []
+  action:
+  - type: turn_off
+    device_id: 79fb1df27d4a579c85a23fb1e49f9ccb
+    entity_id: switch.albero
+    domain: switch
+  mode: single
+- id: '1609801769241'
+  alias: Toggle luce thomas
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: sensor.sensthomas2toggle
+    attribute: toggle
+  - platform: state
+    entity_id: sensor.sensthomas2toggle
+    to: 'off'
+    attribute: toggle
+  - platform: state
+    entity_id: sensor.sensthomastoggle
+    to: 'off'
+  - platform: state
+    entity_id: sensor.sensthomastoggle
+    to: 'on'
+  condition: []
+  action:
+  - type: toggle
+    device_id: fcdbcbf5f9a798ef700f3b423120e717
+    entity_id: light.thomas
+    domain: light
+  mode: restart
+- id: '1609862491226'
+  alias: Dimmer luce thomas
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.sensthomaspresses
+    attribute: presses
+  - platform: state
+    entity_id: sensor.sensthomas2presses
+    attribute: presses
+  condition: []
+  action:
+  - type: brightness_increase
+    device_id: fcdbcbf5f9a798ef700f3b423120e717
+    entity_id: light.thomas
+    domain: light
+  mode: restart
+- id: '1610655330455'
+  alias: Toggle luce scale
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: sensor.sensscalepresses
+    attribute: toggle
+  - platform: state
+    entity_id: sensor.sensscalepresses
+    to: 'off'
+    attribute: toggle
+  condition: []
+  action:
+  - type: toggle
+    device_id: c3032ce38629723d0a495685b93a74f1
+    entity_id: switch.tasmota
+    domain: switch
+  mode: restart
+- id: '1610657419646'
+  alias: Toggle luce tavolo
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: sensor.senstavolopresses
+    attribute: toggle
+  - platform: state
+    entity_id: sensor.senstavolopresses
+    to: 'off'
+    attribute: toggle
+  condition: []
+  action:
+  - type: toggle
+    device_id: 561fa4779181bd865faaf13b92602acd
+    entity_id: switch.tavolo
+    domain: switch
+  mode: restart
+- id: '1610659784925'
+  alias: Toggle luce Divano
+  description: ''
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id: sensor.sensdivanotoggle
+    attribute: toggle
+  - platform: state
+    entity_id: sensor.sensdivanotoggle
+    to: 'off'
+    attribute: toggle
+  condition: []
+  action:
+  - type: toggle
+    device_id: 81ceffdb8c399dcc00c4cb9a6555fd77
+    entity_id: switch.divano
+    domain: switch
+  mode: restart
