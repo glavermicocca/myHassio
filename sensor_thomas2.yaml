@@ -1,0 +1,54 @@
+- platform: mqtt
+  name: "sensThomas2Temp"
+  unique_id: sensThomas2Temp
+  icon: mdi:temperature-celsius
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: °C
+  value_template: "{{ value_json.temp | float }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensThomas2Presses"
+  unique_id: sensThomas2Presses
+  icon: mdi:counter
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: nr°
+  value_template: "{{ value_json.presses | float }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensThomas2Batt"
+  unique_id: sensThomas2Batt
+  icon: mdi:battery
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.batt | float }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensThomas2Pir"
+  unique_id: sensThomas2Pir
+  icon: mdi:brightness-4
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: 'Pir'
+  value_template: "{{ value_json.pir | float }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensThomas2Mag"
+  unique_id: sensThomas2Mag
+  icon: mdi:magnet
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: 'Mag'
+  value_template: "{{ value_json.mag | float }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
+- platform: mqtt
+  name: "sensThomas2Toggle"
+  unique_id: sensThomas2Toggle
+  icon: mdi:gesture-tap-hold
+  state_topic: "tele/f39c9ed78c19/SENSOR"
+  unit_of_measurement: 'On/Off'
+  value_template: "{{ value_json.toggle }}"
+  json_attributes_topic: "tele/f39c9ed78c19/SENSOR"
+  json_attributes_template: "{{ value_json | tojson }}"
